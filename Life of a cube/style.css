@@ -1,0 +1,71 @@
+#Cube{
+	text-align:center;
+	width:315px;
+	height:300px;
+	display:block;
+	margin:auto;
+}
+h1{
+	text-align: center;
+	font-size:75px;
+	text-shadow: -1px 0 black, 0 0.1px black, 0.1px 0 black, 0 -1px black;
+}
+#start{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:30px;
+	margin-bottom:1	0px;
+	border:1px solid #4ddd18;
+	text-decoration: none;
+	background: #4ddd18;
+	color:white;
+	width:60px;
+	height:30px;
+	cursor: pointer;
+}
+ body{
+ 	background:#6B5B95;
+ 	color:white;
+ 	font-family: 'Open Sans', sans-serif;
+
+ }
+
+
+p{
+	text-align: center;
+}
+
+hr.style1{
+	border-top: 1px solid #8c8b8b;
+	width:450px;
+	color:white;
+	margin-top:-75px;
+}
+img{
+	border:2px solid lightblue;
+}
+
+.before{
+	float:center;
+}
+
+#info{
+	
+	text-align: center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 10px;
+}
+
+#about{
+	margin-top: 300px;
+}
+#refresh{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:30px;
+	margin-bottom:1	0px;
+	cursor: pointer;
+}
