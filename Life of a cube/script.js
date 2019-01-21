@@ -31,7 +31,7 @@ mute.addEventListener("click", function(){
 	function death(){
 		var deathMsg = document.getElementById("deathMessage");
 		var totalYears = years + 2019;
-		deathMsg.innerText = (nameN + " " + "2019 -" + totalYears );
+		deathMsg.innerText = (nameN + " " + "2019 - " + totalYears );
 		years = 0;
 		days = 0;
 		var audio = new Audio('audio_file.mp3');
