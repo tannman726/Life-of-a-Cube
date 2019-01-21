@@ -1,12 +1,12 @@
 //Script for Life of a cube
 var buttonSub = document.getElementById("submit");
-document.getElementById("Cube").src="Life of a cube/question.jpg";
+document.getElementById("Cube").src="question.jpg";
 var years = 0;
 var days = 0;
 
 
 start.addEventListener("click", function(){
-myAudio = new Audio('Life of a cube/frustra.mp3'); 
+myAudio = new Audio('frustra.mp3'); 
 myAudio.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();
@@ -126,13 +126,13 @@ mute.addEventListener("click", function(){
 			personality.innerText = ("Personality: Pretty");
 		}
 		if (ranPerson == 6 && easterEgg == 1 ){
-			document.getElementById("Cube").src="Life of a cube/mario.jpg";
+			document.getElementById("Cube").src="mario.jpg";
 			personality.innerText = ("Personality: Plumber")
 		}else if (ranPerson == 7 && easterEgg == 2){
-			document.getElementById("Cube").src="Life of a cube/pennywise.jpg";
+			document.getElementById("Cube").src="pennywise.jpg";
 			personality.innerText = ("Personality: Penny Pincher");
 		}else if (ranPerson == 6  || ranPerson == 7 && easterEgg !== 1 && easterEgg !== 2){
-			document.getElementById("Cube").src="Life of a cube/alive.jpg";
+			document.getElementById("Cube").src="alive.jpg";
 			personality.innerText = ("Personality: Normal")
 	}
 
