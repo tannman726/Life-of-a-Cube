@@ -1,11 +1,21 @@
 //Script for Life of a cube
 var buttonSub = document.getElementById("submit");
-document.getElementById("Cube").src="question.jpg";
+document.getElementById("Cube").src="Life of a cube/question.jpg";
 var years = 0;
 var days = 0;
 
-start.addEventListener("click", function(){
 
+start.addEventListener("click", function(){
+myAudio = new Audio('Life of a cube/frustra.mp3'); 
+myAudio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+myAudio.play();
+
+mute.addEventListener("click", function(){
+	myAudio.muted = true;
+})
 
  document.getElementById("start").disabled = true;
 	refresh.addEventListener("click", function(){
@@ -71,7 +81,7 @@ start.addEventListener("click", function(){
 		var ranDay2 = Math.floor(Math.random() * 40880);
 		var ranDay3 = Math.floor(Math.random() * 40880);
 		if (days == ranDay){
-			var heartChance = Math.floor(Math.random() * 6);
+			var heartChance = Math.floor(Math.random() * 2);
 				if (heartChance == 1){
 					death();
 					deathReason.innerText = ("Cause of Death: Heart disease");
@@ -98,31 +108,31 @@ start.addEventListener("click", function(){
 		var ranPerson = Math.floor(Math.random() * 8);	
 		var easterEgg = Math.floor(Math.random() * 1000);	
 		if (ranPerson == 1){
-			document.getElementById("Cube").src="alive.jpg";
+			document.getElementById("Cube").src="Life of a cube/alive.jpg";
 			personality.innerText = ("Personality: Normal");
 
 
 		}else if(ranPerson == 2){
-			document.getElementById("Cube").src="jolly.jpg";
+			document.getElementById("Cube").src="Life of a cube/jolly.jpg";
 			personality.innerText = ("Personality: Jolly");
 		}else if (ranPerson == 3){
-			document.getElementById("Cube").src="angry.jpg";
+			document.getElementById("Cube").src="Life of a cube/angry.jpg";
 			personality.innerText = ("Personality: Angry")
 		}else if (ranPerson == 4){
-			document.getElementById("Cube").src="dorky.jpg";
+			document.getElementById("Cube").src="Life of a cube/dorky.jpg";
 			personality.innerText = ("Personality: Dorky");
 		}else if (ranPerson == 5){
-			document.getElementById("Cube").src="pretty.jpg";
+			document.getElementById("Cube").src="Life of a cube/pretty.jpg";
 			personality.innerText = ("Personality: Pretty");
 		}
 		if (ranPerson == 6 && easterEgg == 1 ){
-			document.getElementById("Cube").src="mario.jpg";
+			document.getElementById("Cube").src="Life of a cube/mario.jpg";
 			personality.innerText = ("Personality: Plumber")
 		}else if (ranPerson == 7 && easterEgg == 2){
-			document.getElementById("Cube").src="pennywise.jpg";
+			document.getElementById("Cube").src="Life of a cube/pennywise.jpg";
 			personality.innerText = ("Personality: Penny Pincher");
 		}else if (ranPerson == 6  || ranPerson == 7 && easterEgg !== 1 && easterEgg !== 2){
-			document.getElementById("Cube").src="alive.jpg";
+			document.getElementById("Cube").src="Life of a cube/alive.jpg";
 			personality.innerText = ("Personality: Normal")
 	}
 
@@ -277,3 +287,4 @@ personalityCalc();
 	}
 
 	})
+
