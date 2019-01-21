@@ -1,6 +1,6 @@
 //Script for Life of a cube
 var buttonSub = document.getElementById("submit");
-document.getElementById("Cube").src="Life of a cube/question.jpg";
+document.getElementById("Cube").src="Life of a Cube/question.jpg";
 var years = 0;
 var days = 0;
 
