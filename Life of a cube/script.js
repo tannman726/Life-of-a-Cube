@@ -108,21 +108,21 @@ mute.addEventListener("click", function(){
 		var ranPerson = Math.floor(Math.random() * 8);	
 		var easterEgg = Math.floor(Math.random() * 1000);	
 		if (ranPerson == 1){
-			document.getElementById("Cube").src="Life of a cube/alive.jpg";
+			document.getElementById("Cube").src="alive.jpg";
 			personality.innerText = ("Personality: Normal");
 
 
 		}else if(ranPerson == 2){
-			document.getElementById("Cube").src="Life of a cube/jolly.jpg";
+			document.getElementById("Cube").src="jolly.jpg";
 			personality.innerText = ("Personality: Jolly");
 		}else if (ranPerson == 3){
-			document.getElementById("Cube").src="Life of a cube/angry.jpg";
+			document.getElementById("Cube").src="angry.jpg";
 			personality.innerText = ("Personality: Angry")
 		}else if (ranPerson == 4){
-			document.getElementById("Cube").src="Life of a cube/dorky.jpg";
+			document.getElementById("Cube").src="dorky.jpg";
 			personality.innerText = ("Personality: Dorky");
 		}else if (ranPerson == 5){
-			document.getElementById("Cube").src="Life of a cube/pretty.jpg";
+			document.getElementById("Cube").src="pretty.jpg";
 			personality.innerText = ("Personality: Pretty");
 		}
 		if (ranPerson == 6 && easterEgg == 1 ){
