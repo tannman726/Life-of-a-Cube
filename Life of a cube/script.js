@@ -1,26 +1,28 @@
 //Script for Life of a cube
 var buttonSub = document.getElementById("submit");
 document.getElementById("Cube").src="question.jpg";
-var years = 0;
-var days = 0;
+let years = 0;
+let days = 0;
+let intSet = 0;
 
 
 start.addEventListener("click", function(){
-myAudio = new Audio('frustra.mp3'); 
-myAudio.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-}, false);
-myAudio.play();
 
-mute.addEventListener("click", function(){
-	myAudio.muted = true;
-})
+	myAudio = new Audio('frustra.mp3'); 
+	myAudio.addEventListener('ended', function() {
+	    this.currentTime = 0;
+	    this.play();
+	}, false);
+	myAudio.play();
 
- document.getElementById("start").disabled = true;
-	refresh.addEventListener("click", function(){
-		location.reload();
+	mute.addEventListener("click", function(){
+		myAudio.muted = true;
 	})
+
+	 document.getElementById("start").disabled = true;
+		refresh.addEventListener("click", function(){
+			location.reload();
+		})
 
 	function reset (){
 		years = 0;
@@ -29,17 +31,20 @@ mute.addEventListener("click", function(){
 
 	}
 	function death(){
-		var deathMsg = document.getElementById("deathMessage");
-		var totalYears = years + 2019;
+		const deathMsg = document.getElementById("deathMessage");
+		let totalYears = years + 2019;
 		deathMsg.innerText = (nameN + " " + "2019 - " + totalYears );
 		years = 0;
 		days = 0;
-		var audio = new Audio('audio_file.mp3');
+		const audio = new Audio('audio_file.mp3');
 		audio.play();
+		setInterval(function(){
+			location.reload();
+		}, 30000)
 
 	}
 
-	var lifeBegin = document.getElementById("lifeBegin");
+	const lifeBegin = document.getElementById("lifeBegin");
 	lifeBegin.innerText = ("Life has Begun!");
 	var Maxyears = 122;
 	var days = 0;
@@ -70,43 +75,53 @@ mute.addEventListener("click", function(){
 		if(days / 365 == 1){
 			days = 0;
 			years++;
-			console.log(years);
-			console.log(days);
+			
+			
 		};
 	};
 
-	
+	function setIntfunc(){
+		if(days == 182){
+			intSet++;
+		}
+	};
+
+	const ranYear = Math.floor(Math.random() * 122);
+	const ranDay = Math.floor(Math.random() * 365);
+	const ranYear2 = Math.floor(Math.random() * 122);
+	const ranYear3 = Math.floor(Math.random() * 122);
+
 	function diseaseDeath(){
-		var ranDay = Math.floor(Math.random() * 40880);
-		var ranDay2 = Math.floor(Math.random() * 40880);
-		var ranDay3 = Math.floor(Math.random() * 40880);
-		if (days == ranDay){
-			var heartChance = Math.floor(Math.random() * 2);
+		if (years == ranYear && days == ranDay){
+			const heartChance = Math.floor(Math.random() * 2);
+			console.log("true");
 				if (heartChance == 1){
 					death();
 					deathReason.innerText = ("Cause of Death: Heart disease");
 
 				} ;
-		};
-		if (days == ranDay2){
-			var cancerChance = Math.floor(Math.random() * 7);
+		} 
+		if (years == ranYear2 && days == ranDay){
+			const cancerChance = Math.floor(Math.random() * 7);
 				if (cancerChance == 1){
 					death();
 					deathReason.innerText = ("Cause of Death: Cancer");
 				};
 		};
-		if (days == ranDay3){
-			var clrdChance = Math.floor(Math.random() * 27);
+		if (years == ranYear3 && days == ranDay){
+			const clrdChance = Math.floor(Math.random() * 27);
 				if (clrdChance == 1){
 					deathReason.innerText = ("Cause of Death: Chronic Lower Respiatory Disease");
 					death();
 				};
 		};
+		
 	};
 
+	
 	function personalityCalc(){
-		var ranPerson = Math.floor(Math.random() * 8);	
-		var easterEgg = Math.floor(Math.random() * 1000);	
+		const ranPerson = Math.floor(Math.random() * 8);	
+		const easterEgg = Math.floor(Math.random() * 1000);	
 		if (ranPerson == 1){
 			document.getElementById("Cube").src="alive.jpg";
 			personality.innerText = ("Personality: Normal");
@@ -138,15 +153,17 @@ mute.addEventListener("click", function(){
 
 	}
 	
-personalityCalc();
+	personalityCalc();
 
 	
 	if (years !== Maxyears){
 		setInterval(function(){
 				days++;
 				yearsPass();
-				diseaseDeath();
 				ageCalc();
+				setIntfunc();
+				diseaseDeath();
+
 			}, 100)
 				
 		}else if (years == Maxyears){
