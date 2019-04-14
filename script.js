@@ -1,12 +1,12 @@
 //Script for Life of a cube
 var buttonSub = document.getElementById("submit");
-document.getElementById("Cube").src="Life of a Cube/question.jpg";
+document.getElementById("Cube").src="question.jpg";
 var years = 0;
 var days = 0;
 
 
 start.addEventListener("click", function(){
-myAudio = new Audio('Life of a Cube/frustra.mp3'); 
+myAudio = new Audio('frustra.mp3'); 
 myAudio.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();
@@ -108,31 +108,31 @@ mute.addEventListener("click", function(){
 		var ranPerson = Math.floor(Math.random() * 8);	
 		var easterEgg = Math.floor(Math.random() * 1000);	
 		if (ranPerson == 1){
-			document.getElementById("Cube").src="Life of a Cube/alive.jpg";
+			document.getElementById("Cube").src="alive.jpg";
 			personality.innerText = ("Personality: Normal");
 
 
 		}else if(ranPerson == 2){
-			document.getElementById("Cube").src="Life of a Cube/jolly.jpg";
+			document.getElementById("Cube").src="jolly.jpg";
 			personality.innerText = ("Personality: Jolly");
 		}else if (ranPerson == 3){
-			document.getElementById("Cube").src="Life of a Cube/angry.jpg";
+			document.getElementById("Cube").src="angry.jpg";
 			personality.innerText = ("Personality: Angry")
 		}else if (ranPerson == 4){
-			document.getElementById("Cube").src="Life of a Cube/dorky.jpg";
+			document.getElementById("Cube").src="dorky.jpg";
 			personality.innerText = ("Personality: Dorky");
 		}else if (ranPerson == 5){
-			document.getElementById("Cube").src="Life of a Cube/pretty.jpg";
+			document.getElementById("Cube").src="pretty.jpg";
 			personality.innerText = ("Personality: Pretty");
 		}
 		if (ranPerson == 6 && easterEgg == 1 ){
-			document.getElementById("Cube").src="Life of a Cube/mario.jpg";
+			document.getElementById("Cube").src="mario.jpg";
 			personality.innerText = ("Personality: Plumber")
 		}else if (ranPerson == 7 && easterEgg == 2){
-			document.getElementById("Cube").src="Life of a Cube/pennywise.jpg";
+			document.getElementById("Cube").src="pennywise.jpg";
 			personality.innerText = ("Personality: Penny Pincher");
 		}else if (ranPerson == 6  || ranPerson == 7 && easterEgg !== 1 && easterEgg !== 2){
-			document.getElementById("Cube").src="Life of a Cube/alive.jpg";
+			document.getElementById("Cube").src="alive.jpg";
 			personality.innerText = ("Personality: Normal")
 	}
 
