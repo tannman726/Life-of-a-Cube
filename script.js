@@ -8,7 +8,7 @@ let intSet = 0;
 
 start.addEventListener("click", function(){
 
-	myAudio = new Audio('frustra.mp3'); 
+	myAudio = new Audio('Married_Life.mp3'); 
 	myAudio.addEventListener('ended', function() {
 	    this.currentTime = 0;
 	    this.play();
@@ -36,7 +36,7 @@ start.addEventListener("click", function(){
 		deathMsg.innerText = (nameN + " " + "2019 - " + totalYears );
 		years = 0;
 		days = 0;
-		const audio = new Audio('Married_Life.mp3');
+		const audio = new Audio('audio_file.mp3');
 		audio.play();
 		setInterval(function(){
 			location.reload();
