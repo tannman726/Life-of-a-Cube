@@ -77,7 +77,7 @@ start.addEventListener("click", function(){
 		onehundredtwentyone: 2
 	};
 	const nameAge = document.getElementById("nameAge");
-	const nameN = document.getElementById("name").value;
+	let nameN = document.getElementById("name").value;
 
 	function yearsPass(){
 		if(365 <= days){
