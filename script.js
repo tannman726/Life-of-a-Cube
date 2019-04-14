@@ -1,26 +1,28 @@
 //Script for Life of a cube
-var buttonSub = document.getElementById("submit");
+const buttonSub = document.getElementById("submit");
 document.getElementById("Cube").src="question.jpg";
-var years = 0;
-var days = 0;
+let years = 0;
+let days = 0;
+let intSet = 0;
 
 
 start.addEventListener("click", function(){
-myAudio = new Audio('frustra.mp3'); 
-myAudio.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-}, false);
-myAudio.play();
 
-mute.addEventListener("click", function(){
-	myAudio.muted = true;
-})
+	myAudio = new Audio('frustra.mp3'); 
+	myAudio.addEventListener('ended', function() {
+	    this.currentTime = 0;
+	    this.play();
+	}, false);
+	myAudio.play();
 
- document.getElementById("start").disabled = true;
-	refresh.addEventListener("click", function(){
-		location.reload();
+	mute.addEventListener("click", function(){
+		myAudio.muted = true;
 	})
+
+	 document.getElementById("start").disabled = true;
+		refresh.addEventListener("click", function(){
+			location.reload();
+		})
 
 	function reset (){
 		years = 0;
@@ -29,25 +31,28 @@ mute.addEventListener("click", function(){
 
 	}
 	function death(){
-		var deathMsg = document.getElementById("deathMessage");
-		var totalYears = years + 2019;
+		const deathMsg = document.getElementById("deathMessage");
+		let totalYears = years + 2019;
 		deathMsg.innerText = (nameN + " " + "2019 - " + totalYears );
 		years = 0;
 		days = 0;
-		var audio = new Audio('Life of a Cube/audio_file.mp3');
+		const audio = new Audio('Married_Life.mp3');
 		audio.play();
+		setInterval(function(){
+			location.reload();
+		}, 30000)
 
 	}
 
-	var lifeBegin = document.getElementById("lifeBegin");
+	const lifeBegin = document.getElementById("lifeBegin");
 	lifeBegin.innerText = ("Life has Begun!");
-	var Maxyears = 122;
-	var days = 0;
-	var ageEl = document.getElementById("age");
-	var personality = document.getElementById("personality");
-	var deathReason = document.getElementById("deathReason");
+	const Maxyears = 122;
+	let days = 0;
+	const ageEl = document.getElementById("age");
+	const personality = document.getElementById("personality");
+	const deathReason = document.getElementById("deathReason");
 
-	var naturalDeath = {
+	let naturalDeath = {
 		underone: 177,
 		four: 4386,
 		fourteen: 8333,
@@ -59,54 +64,79 @@ mute.addEventListener("click", function(){
 		seventyfour: 42,
 		eightyfour: 15,
 		overeightyfour: 6,
-		ninetyfour:4,
-		onehundredfour:2,
-		onehundredfourteen:2
+		ninetyfour: 4,
+		ninetyseven: 3,
+		onehundredfour: 2,
+		onehundredfourteen: 2,
+		onehundredfifteen: 2,
+		onehundredsixteen: 2,
+		onehundredseventeen: 2,
+		onehundredeighteen: 2,
+		onehundredninteen: 2,	
+		onehundredtwenty: 2,
+		onehundredtwentyone: 2
 	};
-	var nameAge = document.getElementById("nameAge");
-	var nameN = document.getElementById("name").value;
+	const nameAge = document.getElementById("nameAge");
+	const nameN = document.getElementById("name").value;
 
 	function yearsPass(){
-		if(days / 365 == 1){
+		if(365 <= days){
 			days = 0;
 			years++;
-			console.log(years);
-			console.log(days);
+			
+			
 		};
 	};
 
-	
+	function setIntfunc(){
+		if(days == 182){
+			intSet++;
+		}
+	};
+
+	const ranYear = Math.floor(Math.random() * 122) + 1;
+	const ranYear2 = Math.floor(Math.random() * 122) + 1;
+	const ranYear3 = Math.floor(Math.random() * 122) + 1;
+
 	function diseaseDeath(){
-		var ranDay = Math.floor(Math.random() * 40880);
-		var ranDay2 = Math.floor(Math.random() * 40880);
-		var ranDay3 = Math.floor(Math.random() * 40880);
-		if (days == ranDay){
-			var heartChance = Math.floor(Math.random() * 2);
+		if (years <= 1 && days <= 1){
+			const stillBorn = Math.floor(Math.random() * 100) + 1;
+			if(stillBorn == 1){
+				death();
+				deathReason.innerText = ("Cause of Death: Stillborn");
+			}
+		}
+		if (years == ranYear && days == 180){
+			const heartChance = Math.floor(Math.random() * 2) + 1;
+			console.log("Chance: " + heartChance);
+
 				if (heartChance == 1){
 					death();
 					deathReason.innerText = ("Cause of Death: Heart disease");
 
 				} ;
-		};
-		if (days == ranDay2){
-			var cancerChance = Math.floor(Math.random() * 7);
+		} 
+		if (years == ranYear2 && days == 180){
+			const cancerChance = Math.floor(Math.random() * 7) + 1;
 				if (cancerChance == 1){
 					death();
 					deathReason.innerText = ("Cause of Death: Cancer");
 				};
 		};
-		if (days == ranDay3){
-			var clrdChance = Math.floor(Math.random() * 27);
+		if (years == ranYear3 && days == 180){
+			const clrdChance = Math.floor(Math.random() * 27) + 1;
 				if (clrdChance == 1){
 					deathReason.innerText = ("Cause of Death: Chronic Lower Respiatory Disease");
 					death();
 				};
 		};
+		
 	};
 
+	
 	function personalityCalc(){
-		var ranPerson = Math.floor(Math.random() * 8);	
-		var easterEgg = Math.floor(Math.random() * 1000);	
+		const ranPerson = Math.floor(Math.random() * 8);	
+		const easterEgg = Math.floor(Math.random() * 1000);	
 		if (ranPerson == 1){
 			document.getElementById("Cube").src="alive.jpg";
 			personality.innerText = ("Personality: Normal");
@@ -124,8 +154,7 @@ mute.addEventListener("click", function(){
 		}else if (ranPerson == 5){
 			document.getElementById("Cube").src="pretty.jpg";
 			personality.innerText = ("Personality: Pretty");
-		}
-		if (ranPerson == 6 && easterEgg == 1 ){
+		}else if (ranPerson == 6 && easterEgg == 1 ){
 			document.getElementById("Cube").src="mario.jpg";
 			personality.innerText = ("Personality: Plumber")
 		}else if (ranPerson == 7 && easterEgg == 2){
@@ -134,19 +163,26 @@ mute.addEventListener("click", function(){
 		}else if (ranPerson == 6  || ranPerson == 7 && easterEgg !== 1 && easterEgg !== 2){
 			document.getElementById("Cube").src="alive.jpg";
 			personality.innerText = ("Personality: Normal")
-	}
+		}else{
+			document.getElementById("Cube").src="alive.jpg";
+			personality.innerText = ("Personality: Normal");		
+		} 
 
 	}
 	
-personalityCalc();
+	personalityCalc();
 
+	setInterval(function setDays(){
+		yearsPass();
+		ageCalc();
+		setIntfunc();
+		diseaseDeath();
+	}, 500);
 	
 	if (years !== Maxyears){
 		setInterval(function(){
 				days++;
-				yearsPass();
-				diseaseDeath();
-				ageCalc();
+
 			}, 100)
 				
 		}else if (years == Maxyears){
@@ -158,6 +194,7 @@ personalityCalc();
 	function naturalDeathChance(){
 		if(years <= 1){
 			var chance = Math.floor(Math.random() * naturalDeath.underone);
+			
 			if (chance == 1){
 				death();
 				deathReason.innerText = ("Cause of Death: Stillborn");
@@ -213,7 +250,7 @@ personalityCalc();
 			}; 
 
 		};
-		if(years <= 65){
+		if(65 <= years){
 			var chance = Math.floor(Math.random() * naturalDeath.sixtyfour);
 			if (chance == 1){
 				death();
@@ -246,6 +283,14 @@ personalityCalc();
 
 			};
 		}; 
+		if(97 <= years){
+			var chance = Math.floor(Math.random() * naturalDeath.onehundredfour);
+			if (chance == 1){
+				death();
+				deathReason.innerText = ("Cause of Death: Natural Causes");
+
+			};
+		}; 
 		if(105 <= years){
 			var chance = Math.floor(Math.random() * naturalDeath.onehundredfour);
 			if (chance == 1){
@@ -255,7 +300,55 @@ personalityCalc();
 			};
 		}; 
 		if(115 <= years){
-			var chance = Math.floor(Math.random() * naturalDeath.onehundredfourteene);
+			var chance = Math.floor(Math.random() * naturalDeath.onehundredfourteen);
+			if (chance == 1){
+				death();
+				deathReason.innerText = ("Cause of Death: Natural Causes");
+
+			};
+		}; 
+		if(116 <= years){
+			var chance = Math.floor(Math.random() * naturalDeath.onehundredfifteen);
+			if (chance == 1){
+				death();
+				deathReason.innerText = ("Cause of Death: Natural Causes");
+
+			};
+		}; 
+		if(117 <= years){
+			var chance = Math.floor(Math.random() * naturalDeath.onehundredsixteen);
+			if (chance == 1){
+				death();
+				deathReason.innerText = ("Cause of Death: Natural Causes");
+
+			};
+		}; 
+		if(118 <= years){
+			var chance = Math.floor(Math.random() * naturalDeath.onehundredseventeen);
+			if (chance == 1){
+				death();
+				deathReason.innerText = ("Cause of Death: Natural Causes");
+
+			};
+		}; 
+		if(119 <= years){
+			var chance = Math.floor(Math.random() * naturalDeath.onehundredeighteen);
+			if (chance == 1){
+				death();
+				deathReason.innerText = ("Cause of Death: Natural Causes");
+
+			};
+		}; 
+		if(120 <= years){
+			var chance = Math.floor(Math.random() * naturalDeath.onehundredninteen);
+			if (chance == 1){
+				death();
+				deathReason.innerText = ("Cause of Death: Natural Causes");
+
+			};
+		}; 
+		if(121 <= years){
+			var chance = Math.floor(Math.random() * naturalDeath.onehundredtwenty);
 			if (chance == 1){
 				death();
 				deathReason.innerText = ("Cause of Death: Natural Causes");
@@ -287,3 +380,6 @@ personalityCalc();
 	}
 
 	})
+
+
+
