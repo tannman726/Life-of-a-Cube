@@ -177,6 +177,7 @@ start.addEventListener("click", function(){
 		ageCalc();
 		setIntfunc();
 		diseaseDeath();
+		console.log(days);
 	}, 500);
 	
 	if (years !== Maxyears){
